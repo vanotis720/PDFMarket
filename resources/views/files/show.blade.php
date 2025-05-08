@@ -41,16 +41,26 @@
                     </div>
 
                     <div class="d-grid gap-2">
-                        <form action="{{ route('orders.create', $file) }}" method="GET">
-                            @csrf
-                            <button type="submit" class="btn btn-success btn-lg w-100">
-                                <i class="bi bi-credit-card me-2"></i> Acheter maintenant
-                            </button>
-                        </form>
-                        <a href="{{ route('home') }}" class="btn btn-outline-secondary"
-                            style="border-color: #A94A4A; color: #A94A4A;">
-                            <i class="bi bi-arrow-left me-2"></i> Retour aux fichiers
-                        </a>
+                        @if (auth()->check() && auth()->user()->purchasedFiles()->where('file_id', $file->id)->exists())
+                            <a href="{{ route('files.download', $file) }}" class="btn btn-primary btn-lg w-100 mb-2">
+                                <i class="bi bi-download me-2"></i> Télécharger le fichier
+                            </a>
+                            <a href="{{ route('home') }}" class="btn btn-outline-secondary"
+                                style="border-color: #A94A4A; color: #A94A4A;">
+                                <i class="bi bi-arrow-left me-2"></i> Retour aux fichiers
+                            </a>
+                        @else
+                            <form action="{{ route('orders.create', $file) }}" method="GET">
+                                @csrf
+                                <button type="submit" class="btn btn-success btn-lg w-100">
+                                    <i class="bi bi-credit-card me-2"></i> Acheter maintenant
+                                </button>
+                            </form>
+                            <a href="{{ route('home') }}" class="btn btn-outline-secondary"
+                                style="border-color: #A94A4A; color: #A94A4A;">
+                                <i class="bi bi-arrow-left me-2"></i> Retour aux fichiers
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -6,6 +6,23 @@
             <div class="card">
                 <div class="card-header">Confirmer le paiement</div>
                 <div class="card-body">
+                    {{-- Error Handling --}}
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <h3 style="color: #A94A4A;">{{ $file->title }}</h3>
                     <p>{{ $file->description }}</p>
                     <hr style="border-color: #F4D793;">

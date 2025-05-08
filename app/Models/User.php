@@ -45,4 +45,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function purchasedFiles()
+    {
+        return $this->hasMany(Order::class)->where('status', 'completed');
+    }
 }
