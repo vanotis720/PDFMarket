@@ -1,5 +1,5 @@
 <p align="center"><h1 align="center">PDFMarket - Sell & Buy PDF from your favorite creators</h1></p>
-<p align="center"><h3 align="center">A simple and powerful platform for selling and buying PDF files using Lygos API for mobile money payment</h3></p>
+<p align="center"><h3 align="center">A simple and powerful platform for selling and buying PDF files using Lygos API for mobile money payment (Youtube tuto)</h3></p>
 
 ## About PDFMarket
 
