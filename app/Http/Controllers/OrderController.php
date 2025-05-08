@@ -37,8 +37,8 @@ class OrderController extends Controller
             $shop_name = "PDFMarket";
             $order_id = $order->payment_reference;
             $message = "Paiement pour le fichier : " . $file->name;
-            $success_url = 'https://example.com/success'; // Replace with your success URL
-            $failure_url = 'https://example.com/failure'; // Replace with your failure URL
+            $success_url = route('orders.verify', $order_id);
+            $failure_url = route('orders.verify', $order_id);
 
             $curl = curl_init();
 

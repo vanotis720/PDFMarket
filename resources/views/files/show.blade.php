@@ -24,6 +24,16 @@
             </div>
             <div class="col-md-6">
                 <div class="card-body p-5">
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <h1 class="card-title fw-bold mb-2" style="color: #A94A4A;">{{ $file->title }}</h1>
                     <div class="d-flex align-items-center mb-3">
                         <span class="badge px-3 py-2 fs-6">{{ number_format($file->price, 2) }} €</span>
